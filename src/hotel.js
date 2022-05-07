@@ -1,4 +1,4 @@
-export default class Hotel{
+module.exports = class Hotel{
     constructor(weekTax, fidelityWTax, weekEndTax, fidelityWETax, rate){
         this.weekTax = weekTax;
         this.fidelityWTax = fidelityWTax;

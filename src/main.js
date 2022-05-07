@@ -1,5 +1,4 @@
-import Hotel from "./hotel.js";
-
+const Hotel = require('./hotel');
 const lakewood = new Hotel(110, 80, 90, 80, 3);
 const bridgewood = new Hotel(160, 110, 60, 50, 4);
 const ridgewood = new Hotel(220, 100, 150, 40, 5);
@@ -18,7 +17,6 @@ function printCosts (hotels){
 //Function to determinate the indexes of all occurrences of the lowest cost
 function minCost(hotels){
     let min = Math.min(hotels[0].cost, hotels[1].cost, hotels[2].cost);
-    console.log('Min encontrado: ' + min);
     const indexes = [];
 
     for (let index = 0; index < hotels.length; index++) {
@@ -78,10 +76,8 @@ function getCheapestHotel (input) { //DO NOT change the function's name.
         hotels.push(hotel3);
         indexes = minCost(hotels);
     } else {
-        console.log('Entrada inválida');
-        return null;
+        return 'Entrada inválida';
     }
-    printCosts(hotels);
     if(indexes.length === 1){ //No multiple occurence of lowest cost
         return hotels[indexes[0]].name;
     } else if(indexes.length > 1) {
@@ -95,15 +91,8 @@ function getCheapestHotel (input) { //DO NOT change the function's name.
           }
           return hotels[best].name;
     } else {
-        console.log('Erro na execução...')
-        return null; 
+        return 'Erro na execução'; 
     }
 }
 
-console.log(getCheapestHotel('Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)'));
-console.log('------------------------------------------------------------');
-console.log(getCheapestHotel('Regular: 20Mar2009(fri), 21Mar2009(sat), 22Mar2009(sun)'));
-console.log('------------------------------------------------------------');
-console.log(getCheapestHotel('Reward: 26Mar2009(thur), 27Mar2009(fri), 28Mar2009(sat)'));
-
-exports.getCheapestHotel = getCheapestHotel
+exports.getCheapestHotel = getCheapestHotel;
